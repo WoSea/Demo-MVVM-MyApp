@@ -13,8 +13,8 @@ namespace MyApp
         {
             InitializeComponent();
 
-            MainPage = new MyApp.MainPage();
-        }
+            MainPage = new NavigationPage(new MyApp.Views.LoginView());
+        } 
 
         protected override void OnStart()
         {

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyApp.Views.DetailView"
+             Title="{Binding Title}">
+  <Grid Margin="20">
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="60" />
+      <ColumnDefinition />
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="60" />
+      <RowDefinition Height="Auto"/>
+      <RowDefinition />
+    </Grid.RowDefinitions>
+    <Image Source="{Binding Contact.PhotoUrl}" 
+           Grid.Row="0"
+           Grid.Column="0"
+           HeightRequest="60"
+           WidthRequest="60"
+           Aspect="Fill" />
+    <StackLayout Grid.Row="0"
+                 Grid.Column="1">
+      <Label Text="{Binding Contact.Company}" FontAttributes="Bold" />
+      <Label Text="{Binding Contact.JobTitle}" FontSize="14" />
+    </StackLayout>
+    <StackLayout Grid.Row="1"
+                 Grid.ColumnSpan="2">
+      <StackLayout Orientation="Horizontal">
+        <Image Source="phone.png" WidthRequest="20"
+               HeightRequest="20" />
+        <Label Text="{Binding Contact.Phone}" VerticalTextAlignment="Center" VerticalOptions="Center" />
+      </StackLayout>
+      <StackLayout Orientation="Horizontal">
+        <Image Source="email.png" WidthRequest="20"
+               HeightRequest="20" />
+        <Label Text="{Binding Contact.Email}" VerticalTextAlignment="Center" VerticalOptions="Center" />
+      </StackLayout>
+      <StackLayout Orientation="Horizontal">
+        <Image Source="directions.png" WidthRequest="20"
+               HeightRequest="20" />
+        <Label Text="{Binding Contact.Address}" VerticalTextAlignment="Center" VerticalOptions="Center" />
+      </StackLayout>
+    </StackLayout>
+    
+    <Grid Grid.Row="2"
+          Grid.Column="0"
+          Grid.ColumnSpan="2" BackgroundColor="Gray"></Grid>
+  </Grid>
+</ContentPage>
