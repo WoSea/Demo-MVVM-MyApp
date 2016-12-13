@@ -4,35 +4,69 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:controls="clr-namespace:MyApp.Controls;assembly=MyApp"
              xmlns:abstractions="clr-namespace:RoundedBoxView.Forms.Plugin.Abstractions;assembly=RoundedBoxView.Forms.Plugin.Abstractions"
-             x:Class="MyApp.Views.LoginView"
-             BackgroundImage="background.jpg">
-  <StackLayout Margin="40,20" Spacing="16">
-    <Image Source="unlock.png" Margin="0,20"></Image>
+             x:Class="MyApp.Views.LoginView">
+  <Grid>
+    <Image Source="background.jpg" Aspect="Fill"></Image>
+    <StackLayout Margin="40,20" Spacing="16">
+      <Image Source="unlock.png" Margin="0,20"></Image>
 
-    <controls:ImageEntry Text="{Binding Username}" Hint="Username" ImageSource="user.png"/>
+      <controls:ImageEntry Text="{Binding Username}" Hint="Username" ImageSource="user.png"/>
 
-    <controls:ImageEntry IsPass="True" Text="{Binding Password}" Hint="Password" ImageSource="password.png"/>
-    
-    <Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition/>
-        <ColumnDefinition/>
-      </Grid.ColumnDefinitions>
-      <controls:MyButton Command="{Binding LoginCommand}"
-              TextColor="White"
-              Text="LOGIN"
-              BorderRadius="20"
-              BackgroundColor="#43a047" />
-      <controls:MyButton Grid.Column="1"
-              BorderRadius="20"
-              Command="{Binding LoginCommand}"
-              TextColor="White"
-              Text="REGISTER"
-              BackgroundColor="#ff5722" />
+      <controls:ImageEntry IsPass="True" Text="{Binding Password}" Hint="Password" ImageSource="password.png"/>
 
-    </Grid>
-    <abstractions:RoundedBoxView>
-      
-    </abstractions:RoundedBoxView>
-  </StackLayout>
+      <Grid>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <controls:MyButton Command="{Binding LoginCommand}"
+                TextColor="White"
+                Text="LOGIN"
+                BorderRadius="20"
+                BackgroundColor="#43a047" />
+        <controls:MyButton Grid.Column="1"
+                BorderRadius="20"
+                Command="{Binding LoginCommand}"
+                TextColor="White"
+                Text="REGISTER"
+                BackgroundColor="#ff5722" />
+
+      </Grid>
+      <StackLayout HorizontalOptions="Center"
+                   Orientation="Horizontal"
+                  VerticalOptions="Center"
+                   Margin="0,80,0,0">
+        <Grid >
+          <Grid.GestureRecognizers>
+            <TapGestureRecognizer Tapped="OnGoogleTapped"/>
+          </Grid.GestureRecognizers>
+          <abstractions:RoundedBoxView WidthRequest="60"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       HeightRequest="60"
+                                       CornerRadius="30"
+                                       BorderThickness="4"
+                                       BorderColor="White"/>
+          <Image Source="google.png" WidthRequest="20"
+                 HeightRequest="20"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center"></Image>
+        </Grid>
+        <Grid >
+          <abstractions:RoundedBoxView WidthRequest="60"
+                                       HorizontalOptions="Center"
+                                       VerticalOptions="Center"
+                                       HeightRequest="60"
+                                       CornerRadius="30"
+                                       BorderThickness="4"
+                                       BorderColor="White"/>
+          <Image Source="facebook.png" WidthRequest="20"
+                 HeightRequest="20"
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center"></Image>
+        </Grid>
+      </StackLayout>
+
+    </StackLayout>
+  </Grid>
 </ContentPage>

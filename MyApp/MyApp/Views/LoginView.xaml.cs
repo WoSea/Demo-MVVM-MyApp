@@ -19,5 +19,10 @@ namespace MyApp.Views
             NavigationPage.SetHasNavigationBar(this, false);
 
         }
+
+        public void OnGoogleTapped(object sender, EventArgs e)
+        {
+            Device.OpenUri(new Uri("http://google.com"));
+        }
     }
 }
