@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using Foundation;
+using RoundedBoxView.Forms.Plugin.iOSUnified;
 using UIKit;
 
 namespace MyApp.iOS
@@ -24,6 +25,8 @@ namespace MyApp.iOS
         {
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
+
+            RoundedBoxViewRenderer.Init();
 
             return base.FinishedLaunching(app, options);
         }

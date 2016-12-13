@@ -1,30 +1,26 @@
+
 using Android.Graphics.Drawables;
 using Android.Views;
 using MyApp.Controls;
 using MyApp.Droid.Renderers;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
-using MyColor = Android.Graphics.Color;
 
 [assembly: ExportRenderer(typeof(MyEntry), typeof(MyEntryRenderer))]
 namespace MyApp.Droid.Renderers
 {
-    public class MyEntryRenderer:EntryRenderer
+    public class MyEntryRenderer : EntryRenderer
     {
         protected override void OnElementChanged(ElementChangedEventArgs<Entry> e)
         {
             base.OnElementChanged(e);
-
             if (Control != null)
             {
-
-                var drawable = new GradientDrawable();
-            
-                drawable.SetColor(MyColor.White);
-                drawable.SetCornerRadius(20);
-
-                Control.Gravity = GravityFlags.CenterVertical;
-                Control.Background = drawable;
+                GradientDrawable gd = new GradientDrawable();
+                gd.SetColor(Android.Graphics.Color.White);
+                gd.SetCornerRadius(10);
+                this.Control.Background = gd;
+                this.Control.Gravity = GravityFlags.CenterVertical;                
             }
         }
     }
